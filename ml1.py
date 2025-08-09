@@ -42,7 +42,7 @@ df['label'] = df[forecast_col].shift(-forecast_out)
 df.dropna(inplace=True)
 # print(df.tail())
 
-x = np.array(df.drop(columns=['label']))
+x = np.array(df.drop(columns=['label'])) #returns a new dataframe
 y = np.array(df['label'])
 
 #scaling x
@@ -51,6 +51,8 @@ x = scaler.fit_transform(x)
 # print(df.tail())
 
 x = x[:-forecast_out+1]
+
+x = scaler.fit_transform(x)
 
 df.dropna(inplace=True)
 y = np.array(df['label'])
