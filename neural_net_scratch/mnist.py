@@ -3,7 +3,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 """dataset source: https://www.kaggle.com/api/v1/datasets/download/animatronbot/mnist-digit-recognizer"""
-data = pd.read_csv('train.csv')
+data = pd.read_csv('../train.csv')
 
 data.head()
 
