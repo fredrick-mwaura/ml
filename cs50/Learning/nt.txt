@@ -1,0 +1,56 @@
+Support Vector Machine (SVM)
+=============================
+ => classification
+ => regression
+ => outliers detection
+
+1. Definition:
+  - SVM is a supervised machine learning algorithm used for classification and regression tasks.
+  - It finds the optimal hyperplane that separates data points of different classes with the maximum margin.
+
+2. Key Concepts:
+  - Hyperplane: Decision boundary that separates classes.
+  - Margin: Distance between the hyperplane and the nearest data points (support vectors).
+  - Support Vectors: Data points closest to the hyperplane; they influence its position and orientation.
+  - Kernel Trick: Technique to transform data into higher dimensions to make it linearly separable.
+
+3. Types of SVM:
+  - Linear SVM: Used when data is linearly separable.
+  - Non-linear SVM: Uses kernel functions (e.g., polynomial, RBF) for non-linearly separable data.
+
+4. Common Kernels:
+  - Linear Kernel: K(x, y) = x · y
+  - Polynomial Kernel: K(x, y) = (x · y + c)^d
+  - Radial Basis Function (RBF): K(x, y) = exp(-γ||x - y||^2)
+
+5. Applications:
+  - Text classification
+  - Image recognition
+  - Bioinformatics
+
+==> https://scikit-learn.org/stable/modules/svm.html
+
+===== evaluating hypothesis =====
+
+loss functions -
+
+--- minimizing ---
+
+  ----0-1 loss functions-----
+
+  L(actual, predicted) = 
+    0 if actual = predicted,
+    1 otherwise
+  
+  ----L1 loss funcction-----
+
+  L(actual, predicted) = | actual - predicted |
+
+  ----L2 loss functions ----
+
+  L(actual, predicted) = (actual - predicted)^2
+
+
+  === overfitting ===
+
+  fits too closely to a particular data set
