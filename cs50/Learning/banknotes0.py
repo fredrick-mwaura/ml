@@ -9,30 +9,36 @@ import pandas as pd
 import numpy as np
 
 
-csv = pd.read_csv('banknotes.csv')
+# CSV = pd.read_csv('banknotes.csv')
 
-df = csv.head()
-print(df)
+# df = CSV.head()
+# print(df)
 
 # model = Perceptron()
-# model = svm.SVC()
+model = svm.SVC()
 # model = KNeighborsClassifier(n_neighbors=1)
-model = GaussianNB()
+# model = GaussianNB()
 
 # Read data in from file
-with open("banknotes.csv") as f:
-    reader = csv.reader(f)
-    next(reader)
+""" 
+banknotes.csv file link:
+https://drive.google.com/file/d/1E_fsyWYk9sRxDSkRVy0SlDMczs6XklO8/view?usp=sharing
+"""
+with open("banknotes.csv", 'r') as csv_file:
+    reader = csv.reader(csv_file)
+    # print(next(reader))
+    next(reader) #skip header row
 
     data = []
     for row in reader:
+        # print(row)
         data.append({
             "evidence": [float(cell) for cell in row[:4]],
             "label": "Authentic" if row[4] == "0" else "Counterfeit"
         })
 
 # Separate data into training and testing groups
-holdout = int(0.40 * len(data))
+holdout = int(0.50 * len(data))
 random.shuffle(data)
 testing = data[:holdout]
 training = data[holdout:]
