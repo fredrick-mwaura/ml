@@ -4,7 +4,7 @@ from sklearn.preprocessing import LabelEncoder, oneHotEncoder
 import numpy as np
 
 # ordinal
-streets = ["Murang'a", "Nakuru", " Naivasha", "Kerogoya", "Kisumu", "Nairobi"]
+streets = ["Murang'a", "Nakuru", " Naivasha", "Mombasa", "Kisumu", "Nairobi"]
 le = LabelEncoder()
 streets_encoded = le.fit_transform(streets)
 print(streets_encoded)
