@@ -22,7 +22,7 @@ model = svm.SVC()
 # Read data in from file
 """ 
 banknotes.csv file link:
-https://drive.google.com/file/d/1E_fsyWYk9sRxDSkRVy0SlDMczs6XklO8/view?usp=sharing
+https://drive.google.com/file/d/1E_fsyWYk9sRxDSkRVy0SlDMczs6XklO8
 """
 with open("banknotes.csv", 'r') as csv_file:
     reader = csv.reader(csv_file)

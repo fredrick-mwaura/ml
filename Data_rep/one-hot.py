@@ -1,5 +1,3 @@
-# label encoding
-
 from sklearn.preprocessing import LabelEncoder, oneHotEncoder
 import numpy as np
 
