@@ -1,5 +1,4 @@
 import random
-import numpy as np
 
 def train(episodes=200, alpha=0.1, gamma=0.9, epsilon=0.1):
     Q = {}
@@ -48,19 +47,19 @@ def train(episodes=200, alpha=0.1, gamma=0.9, epsilon=0.1):
     return ai_move
 def play(ai):
     pile = 15
-    print("Welcome to Fred's Nim 😇! You vs AI. Take 1–3 objects per turn.")
+    print("Welcome to Fred's Nim 😇! You vs AI. Take 1–5 objects per turn.")
     
     while pile > 0:
         print(f"\nPile size: {pile}")
         
         # Human move
         try:
-            move = int(input("Your move (1–3): "))
+            move = int(input("Your move (1–5): "))
         except ValueError:
             print("Please enter a number.")
             continue
 
-        if move < 1 or move > 3 or move > pile:
+        if move < 1 or move > 5 or move > pile:
             print("Invalid move. Try again.")
             continue
 
