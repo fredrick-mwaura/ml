@@ -1,7 +1,11 @@
 import sys
 import tensorflow as tf
 
-# Use MNIST handwriting dataset
+"""
+Train a convolutional neural network on the MNIST dataset (C.N.N).
+"""
+
+# Use MNIST handwriting dataset - tensorflow datasets
 mnist = tf.keras.datasets.mnist
 
 # Prepare data for training
@@ -32,7 +36,7 @@ model = tf.keras.models.Sequential([
 
     # Add a hidden layer with dropout
     tf.keras.layers.Dense(128, activation="relu"),
-    tf.keras.layers.Dropout(0.5),
+    tf.keras.layers.Dropout(rate=0.5), ## prevent overfitting (drop-50% of the inputs)
 
     # Add an output layer with output units for all 10 digits
     tf.keras.layers.Dense(10, activation="softmax")
@@ -40,8 +44,8 @@ model = tf.keras.models.Sequential([
 
 # Train neural network
 model.compile(
-    optimizer="adam",
-    loss="categorical_crossentropy",
+    optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+    loss=tf.keras.losses.CategoricalCrossentropy,
     metrics=["accuracy"]
 )
 model.fit(x_train, y_train, epochs=10)
@@ -52,5 +56,8 @@ model.evaluate(x_test,  y_test, verbose=2)
 # Save model to file
 if len(sys.argv) == 2:
     filename = sys.argv[1]
+    """saving model with the weights of the learned model - 
+    - in .h5 -> Hierarchical Data Format v5
+    """
     model.save(filename)
     print(f"Model saved to {filename}.")

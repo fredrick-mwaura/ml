@@ -2,7 +2,13 @@ import numpy as np
 import pygame
 import sys
 import tensorflow as tf
-import time
+
+## converting model.h5 to .keras
+
+init_model = tf.keras.models.load_model("model.h5")
+print("converting to .keras")
+init_model.save('modelK.keras')
+
 
 # Check command-line arguments
 if len(sys.argv) != 2:
